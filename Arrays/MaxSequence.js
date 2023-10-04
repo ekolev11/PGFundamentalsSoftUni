@@ -1,20 +1,19 @@
-function solve(arr1){
-    let arr = arr1;
-    let longestSequence = [];
-    let currentSequence = [];
-    for (i = 0; i < arr.length; i++){
-        if (arr[i] === arr[i - 1]){
-           currentSequence.push(arr[i]);
-           currentSequence.push(arr[i - 1]);
-        }else{
-            longestSequence = currentSequence;
-            currentSequence = [];
+function solve(arr){
+
+    let longestSequence = [arr[0]];
+    let currentSequence = [arr[0]];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] === arr[i - 1]) {
+          currentSequence.push(arr[i]);
+        } else {
+          currentSequence = [arr[i]];
         }
+        if (currentSequence.length > longestSequence.length) {
+          longestSequence = currentSequence;
+        }
+      }
 
-        
-        
-        
-    }
-    console.log(longestSequence);
-
-}solve([2, 1, 1, 2, 3, 3, 2, 2, 2, 1])
+      console.log(longestSequence.join(" "));
+      
+    } solve([0, 1, 1, 1, 5, 2, 2, 6, 3, 3])
